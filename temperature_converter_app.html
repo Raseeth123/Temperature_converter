@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cot{
+            margin:150px auto;
+            width: 320px;
+            height:auto;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            background-color: whitesmoke;
+            padding: 10px;
+            padding-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .heading{
+            color: rgb(46, 10, 118);
+            text-align: center;
+        }
+
+        .cot1{
+            display: flex;
+            justify-content: center;
+            padding-top: 15px;
+        }
+
+        .ipt{
+            border: 2px solid black;
+            height: 30px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 17px;
+            border-radius: 10px;
+        }
+
+        .cot2{
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .but{
+            background-color: brown;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            padding: 7px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cot">
+        <h1 class="heading">Temperature Conversion:</h1>
+        <div class="cot1"><input type="number" class="ipt" id="ipt" value="0"></div>
+        <br><br>
+      <div class="cot2">
+        <input type="radio" id="cl2f" name="temp">
+        <label for="cl2f">Celsius ---> Fahrenheit</label>
+        <br><br>
+        <input type="radio" id="f2cl" name="temp">
+        <label for="f2cl">Fahrenheit ---> Celsius</label>
+        <br><br>
+        <button id="submit" class="but" type="submit">Submit</button>
+        <p id="res"></p>
+      </div>
+    </div>
+    <script>
+        let temp;
+        let fahrenheit
+        let celsius
+        document.getElementById("submit").onclick=function(){
+            temp=document.getElementById("ipt").value
+            temp=Number(temp)
+            if(document.getElementById("cl2f").checked){
+                fahrenheit=temp*9/5+32
+                document.getElementById("res").textContent=`${fahrenheit}°F`
+            }
+            else if(document.getElementById("f2cl").checked){
+                celsius=(temp-32)*5/9
+                celsius=celsius.toFixed(2)
+                document.getElementById("res").textContent=`${celsius}°C`
+            }
+            else{
+                document.getElementById("res").textContent=`Enter a valid Option !!`
+            }
+        }
+
+    </script>
+</body>
+</html>
+
